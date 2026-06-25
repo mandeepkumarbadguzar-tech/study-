@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="box">
+    <h2>Admin Login</h2>
+    <form id="loginForm" onsubmit="return handleLogin(event)">
+      <input id="user" name="user" placeholder="Username" autocomplete="username" required>
+      <br>
+      <input id="pass" name="pass" type="password" placeholder="Password" autocomplete="current-password" required>
+      <br>
+      <button type="submit">Login</button>
+      <p id="msg" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <script>
+    // Demo-only credentials (visible to anyone - not secure for production)
+    const DEMO_USER = '1911';
+    const DEMO_PASS = 'Mandeep@1911';
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('user').value.trim();
+      const pass = document.getElementById('pass').value;
+      const msg = document.getElementById('msg');
+
+      if (user === DEMO_USER && pass === DEMO_PASS) {
+        window.location.href = 'index.html';
+      } else {
+        msg.textContent = 'Wrong login';
+        msg.style.color = 'red';
+      }
+      return false;
+    }
+  </script>
+
+</body>
+</html>
